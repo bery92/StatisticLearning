@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 
 def problem8():
+    print("Problem 9")
     #a-c
     college = pd.read_csv("../Data/College.csv")
     college = college.rename({'Unnamed: 0': 'College'},axis=1)
@@ -26,7 +27,28 @@ def problem8():
     axs[1,1].hist(college['Grad.Rate'])
 
     #h
+    plt.show()
     
+def problem9():
+    print("Problem 9")
+    auto = pd.read_csv("../Data/Auto.csv", na_values=['?'])
+    #a all are quantitative except name
+    print(auto.dtypes)
+    #b c 
+    def statistics(data):
+        for key in data.keys():
+            if(data[key].dtype in ["int64", "float64"]):
+                print(key + f" Range: {data[key].min()} - {data[key].max()} Mean: {data[key].mean():.2f} Deviation: {data[key].std():.2f}")
+    statistics(auto)
+    #d
+    autoSection = auto.drop(range(10,85), axis=0)
+    statistics(autoSection)
+    #e
+    pd.plotting.scatter_matrix(auto)
+    #f
+    #Direct proportional to mpg: acceleration, year
+    #Inverse proportional to mpg: weight, cylinder, displacement, horsepower 
     plt.show()
 
-problem8()
+
+problem9()
