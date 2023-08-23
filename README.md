@@ -1,1 +1,3 @@
 # StatisticLearning
+
+pip install matplotlib
