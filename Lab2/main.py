@@ -50,5 +50,21 @@ def problem9():
     #Inverse proportional to mpg: weight, cylinder, displacement, horsepower 
     plt.show()
 
+def problem10():
+    #a
+    boston = pd.read_csv("../Data/Boston.csv")
+    #b some cryme statistics based on area?!
+    print(f"Number of rows and columns: {boston.shape}")
+    #c
+    pd.plotting.scatter_matrix(boston)
+    #d predictors associated with crime rate: indus, nox
+    #ef
 
-problem9()
+    #g 
+    print("Pupil teacher rate (Median) ", boston["ptratio"].median())
+    #i
+    print("Top owner occupied homes")
+    print(boston[boston["rm"]>8].sort_values("rm",ascending=False))
+    plt.show()
+
+problem10()
